@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-// функція сортування злиттям
+// С„СѓРЅРєС†С–СЏ СЃРѕСЂС‚СѓРІР°РЅРЅСЏ Р·Р»РёС‚С‚СЏРј
 
 void mergeSort(int* arr, int l, int r)
 {
@@ -36,13 +36,13 @@ int main()
     int N, d;
     int arr[N];
     int min, tmp;
-    // сортування вибором
+    // СЃРѕСЂС‚СѓРІР°РЅРЅСЏ РІРёР±РѕСЂРѕРј
     for (N = 10; N <= 10000; N *= N)
     {
         unsigned int start_time = clock();
         for (int i = 0; i < N; i++)
         {
-            arr[i] = rand() % 100;       // генератор випадкових чисел
+            arr[i] = rand() % 100;        // РіРµРЅРµСЂР°С‚РѕСЂ РІРёРїР°РґРєРѕРІРёС… С‡РёСЃРµР»
         }
         for (int i = 0; i < N - 1; i++)
         {
@@ -50,22 +50,22 @@ int main()
             for (int j = i + 1; j < N; j++)
             {
                 if (arr[j] < arr[min])
-                {                           //пошук мінімального
+                {                           //РїРѕС€СѓРє РјС–РЅС–РјР°Р»СЊРЅРѕРіРѕ
                     min = j;
                 }
             }
             tmp = arr[i];
-            arr[i] = arr[min];     //заміна і-того елемента на мінімальний
+            arr[i] = arr[min];     //Р·Р°РјС–РЅР° С–-С‚РѕРіРѕ РµР»РµРјРµРЅС‚Р° РЅР° РјС–РЅС–РјР°Р»СЊРЅРёР№
             arr[min] = tmp;
         }
 
         unsigned int end_time = clock();
-        unsigned int search_time = end_time - start_time;    // кінцевий час роботи фрагмента програми
+        unsigned int search_time = end_time - start_time;    // РєС–РЅС†РµРІРёР№ С‡Р°СЃ СЂРѕР±РѕС‚Рё С„СЂР°РіРјРµРЅС‚Р° РїСЂРѕРіСЂР°РјРё
         cout << endl;
         cout << "N = " << N << endl;
-        cout << "вибором" << " - " << search_time << endl;
+        cout << "РІРёР±РѕСЂРѕРј" << " - " << search_time << endl;
 
-        //   сортування вставко
+        //   СЃРѕСЂС‚СѓРІР°РЅРЅСЏ РІСЃС‚Р°РІРєРѕ
 
         unsigned int s_time = clock();
         for (int i = 0; i < N; i++)
@@ -85,10 +85,10 @@ int main()
         }
         unsigned int en_time = clock();
         unsigned int searc_time = en_time - s_time;
-        cout << "вставкою" << " - " << searc_time << endl;
+        cout << "РІСЃС‚Р°РІРєРѕСЋ" << " - " << searc_time << endl;
 
 
-        //   сортування Шелла
+        //   СЃРѕСЂС‚СѓРІР°РЅРЅСЏ РЁРµР»Р»Р°
         unsigned int sta_time = clock();
         for (int i = 0; i < N; i++)
         {
@@ -114,21 +114,21 @@ int main()
         }
 
         unsigned int endl_time = clock();
-        unsigned int searchh_time = endl_time - sta_time;    // кінцевий час роботи фрагмента програми
-        cout << "шелла" << " - " << searchh_time << endl;
+        unsigned int searchh_time = endl_time - sta_time;      // РєС–РЅС†РµРІРёР№ С‡Р°СЃ СЂРѕР±РѕС‚Рё С„СЂР°РіРјРµРЅС‚Р° РїСЂРѕРіСЂР°РјРё
+        cout << "С€РµР»Р»Р°" << " - " << searchh_time << endl;
 
 
-        // Сортування злиттям
+        // РЎРѕСЂС‚СѓРІР°РЅРЅСЏ Р·Р»РёС‚С‚СЏРј
 
         unsigned int rt_time = clock();
         for (int i = 0; i < N; i++)
         {
             arr[i] = rand() % 10000;
         }
-        mergeSort(arr, 0, N - 1); // вызываем функцию сортировки
+        mergeSort(arr, 0, N - 1); // РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС†РёСЋ СЃРѕСЂС‚РёСЂРѕРІРєРё
         unsigned int d_time = clock();
-        unsigned int rch_time = d_time - rt_time;    // кінцевий час роботи фрагмента програми
-        cout << "злиттям" << " - " << rch_time << endl;
+        unsigned int rch_time = d_time - rt_time;    // РєС–РЅС†РµРІРёР№ С‡Р°СЃ СЂРѕР±РѕС‚Рё С„СЂР°РіРјРµРЅС‚Р° РїСЂРѕРіСЂР°РјРё
+        cout << "Г§Г«ГЁГІГІГїГ¬" << " - " << rch_time << endl;
     }
 
 }
